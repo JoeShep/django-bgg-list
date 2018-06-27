@@ -1,0 +1,12 @@
+<h2>See your Board Game Geek collection! Whee!</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit" />
+</form>
+
+{% if search_results.success %}
+  <h3>{{ search_results.title }}</h3>
+{% endif %}
+
