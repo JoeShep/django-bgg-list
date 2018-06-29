@@ -11,10 +11,6 @@ from django.urls import reverse_lazy
 class SearchView(FormView):
   template_name = 'index.html'
   form_class = CollectionForm
-  success_url = reverse_lazy('collection') # or just '/list/'?
-  # or stay here with 'user_collection'?
-
-# No model needed for the API data, but need to override the get_conetxt_data method if you want to use a built-in class-based view (Can't do this at all with ListView, etc, which need a model/db to interact with (?))
 
 class CollectionView(TemplateView):
     template_name = 'collection_list.html'
@@ -31,7 +27,7 @@ class CollectionView(TemplateView):
     # Because now you can define values that become props of a new 'view' object in the template
     # https://reinout.vanrees.org/weblog/2014/05/19/context.html
     def collection(self):
-      collection = ApiService.get_collection()
+      collection = ApiService.get_collection(username=self.request.GET.get('username'))
       return collection
 
 
