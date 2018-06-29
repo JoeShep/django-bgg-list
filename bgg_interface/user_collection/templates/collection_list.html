@@ -1,5 +1,18 @@
+{% extends "index.html" %}
+
 <h2>Here ya go, bud</h2>
 
+{% block content %}
 {% if view.collection.success %}
-  <h3>{{ view.collection.title }}</h3>
+  <ul>
+    {% for item in view.collection.list %}
+    {% comment %} <h3>{{ item.name }}</h3>
+     {% endcomment %}
+    <li>
+      <h3>{{ item.name.text }}</h3>
+      <img src={{item.thumbnail}}>
+    </li>
+    {% endfor %}
+  </ul>
 {% endif %}
+{% endblock %}
