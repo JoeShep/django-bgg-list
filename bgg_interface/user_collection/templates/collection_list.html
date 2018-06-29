@@ -4,15 +4,13 @@
 
 {% block content %}
 {% if view.collection.success %}
-  <ul>
+  <div class="collection-container">
     {% for item in view.collection.list %}
-    {% comment %} <h3>{{ item.name }}</h3>
-     {% endcomment %}
-    <li>
-      <h3>{{ item.name.text }}</h3>
-      <img src={{item.thumbnail}}>
-    </li>
+      <div>
+        <h3>{{ item.name.text }}</h3>
+        <img src={{item.thumbnail}}>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endif %}
 {% endblock %}
