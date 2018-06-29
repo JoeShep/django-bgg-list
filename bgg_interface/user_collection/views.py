@@ -30,8 +30,6 @@ class CollectionView(TemplateView):
       collection = ApiService.get_collection(username=self.request.GET.get('username'))
       return collection
 
-
-
 # Hand-rolled way, without class-based view
 # def index(request):
 #   search_results = {}
