@@ -6,7 +6,6 @@ from .services import ApiService
 # Using a class-based genric view especially for rendering forms
 from django.views.generic.edit import FormView
 from django.views.generic import ListView, TemplateView
-from django.urls import reverse_lazy
 
 class SearchView(FormView):
   template_name = 'index.html'
@@ -26,9 +25,14 @@ class CollectionView(TemplateView):
     #   return context
     # Because now you can define values that become props of a new 'view' object in the template
     # https://reinout.vanrees.org/weblog/2014/05/19/context.html
-    def collection(self):
-      collection = ApiService.get_collection(username=self.request.GET.get('username'))
-      return collection
+    def collection(self): #NOTE that it's the method name that becomes the property on 'view'
+      games = ApiService.get_collection(username=self.request.GET.get('username'))
+      print("games", games)
+      return games
+
+    def message(self):
+      test = {"header": "this is really cool!"}
+      return test
 
 # Hand-rolled way, without class-based view
 # def index(request):

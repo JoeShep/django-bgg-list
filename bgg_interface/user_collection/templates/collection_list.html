@@ -1,8 +1,9 @@
 {% extends "index.html" %}
 
-
 {% block content %}
-<h2>Here ya go, bud</h2>
+
+<h2>Here's your collection of stuff</h2>
+<h2>{{view.message.header|upper}}</h2>
 {% if view.collection.success %}
   <div class="collection-container">
     {% for item in view.collection.list %}
@@ -13,4 +14,5 @@
     {% endfor %}
   </div>
 {% endif %}
+
 {% endblock %}

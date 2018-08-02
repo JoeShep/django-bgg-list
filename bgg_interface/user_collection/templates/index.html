@@ -4,11 +4,10 @@
 <h2>See your Board Game Geek collection! Whee!</h2>
 
 {% block content %}
-  <form action='list/' method="get">
-    {{ form }}
-    <input type="submit" value="Submit" />
-  </form>
+<form action='list/' method="get">
+  {{ form }}
+  <input type="submit" value="Submit" />
+</form>
 {% endblock %}
 
-
-
+{% include 'footer.html' %}
